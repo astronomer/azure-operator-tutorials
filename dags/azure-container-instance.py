@@ -2,7 +2,6 @@ from airflow import DAG
 from airflow.providers.microsoft.azure.operators.azure_container_instances import AzureContainerInstancesOperator
 from datetime import datetime, timedelta
 
-
 # Default settings applied to all tasks
 default_args = {
     'owner': 'airflow',
@@ -13,10 +12,9 @@ default_args = {
     'retry_delay': timedelta(minutes=1)
 }
 
-# Using a DAG context manager, you don't have to specify the dag property of each task
 with DAG('azure_container_instances',
-         start_date=datetime(2019, 1, 1),
-         max_active_runs=3,
+         start_date=datetime(2020, 12, 1),
+         max_active_runs=1,
          schedule_interval='@daily',
          default_args=default_args,
          catchup=False
