@@ -4,7 +4,8 @@ This repo contains an Astronomer project with multiple example DAGs showing how 
 ## DAG Overview
 This repo contains DAGs to interact with the following Azure services. Links will direct you to a detailed guide walking through how to use the operators.
 
- - Azure Container Instances
+ - [Azure Container Instances](https://www.astronomer.io/guides/airflow-azure-container-instances)
+ - [Azure Data Explorer](https://www.astronomer.io/guides/airflow-azure-data-explorer)
 
 
 ## Getting Started
