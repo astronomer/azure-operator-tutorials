@@ -6,6 +6,8 @@ This repo contains DAGs to interact with the following Azure services. Links wil
 
  - [Azure Container Instances](https://www.astronomer.io/guides/airflow-azure-container-instances)
  - [Azure Data Explorer](https://www.astronomer.io/guides/airflow-azure-data-explorer)
+ - [Azure Data Factory](https://www.astronomer.io/guides/airflow-azure-data-factory-integration)
+ - Azure Blob Storage
 
 
 ## Getting Started
