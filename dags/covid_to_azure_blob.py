@@ -41,7 +41,7 @@ with DAG(
         for endpoint in endpoints:
 
             @task(task_id="generate_file_{0}".format(endpoint))
-            def upload_to_azure_blob(endpoint: str, date: str, **kwargs) -> None:
+            def upload_to_azure_blob(endpoint: str, date: str) -> None:
                 # Instanstiate
                 azurehook = WasbHook(wasb_conn_id="azure_blob")
 
