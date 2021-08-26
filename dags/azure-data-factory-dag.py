@@ -12,8 +12,8 @@ yesterday_date = '{{ yesterday_ds_nodash }}'
 def run_adf_pipeline(pipeline_name, date):
     '''Runs an Azure Data Factory pipeline using the AzureDataFactoryHook and passes in a date parameter
     '''
-    
-    #Create a dictionary with date parameter 
+
+    #Create a dictionary with date parameter
     params = {}
     params["date"] = date
 
@@ -22,23 +22,18 @@ def run_adf_pipeline(pipeline_name, date):
     hook.run_pipeline(pipeline_name, parameters=params)
 
 
-default_args = {
-    'owner': 'airflow',
-    'depends_on_past': False,
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 0,
-    'retry_delay': timedelta(minutes=5)
-}
-
-
-with DAG('azure_data_factory',
-         start_date=datetime(2019, 1, 1),
-         max_active_runs=1,
-         schedule_interval=timedelta(minutes=30), 
-         default_args=default_args,
-         catchup=False
-         ) as dag:
+with DAG(
+    'azure_data_factory',
+    start_date=datetime(2019, 1, 1),
+    max_active_runs=1,
+    schedule_interval=timedelta(minutes=30),
+    default_args={
+        'email_on_failure': False,
+        'email_on_retry': False,
+        'retries': 0,
+    },
+    catchup=False
+) as dag:
 
          opr_run_pipeline = PythonOperator(
             task_id='run_pipeline',
