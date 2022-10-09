@@ -1,3 +1,8 @@
+"""
+DAG that shows how to launch containers in AzureContainerInstance from Airflow.
+
+This can be a useful pattern to follow if you are an Azure user that wants a spot to use ACI to run arbitrary containers
+"""
 from airflow import DAG
 from airflow.providers.microsoft.azure.operators.azure_container_instances import AzureContainerInstancesOperator
 from datetime import datetime, timedelta
@@ -13,7 +18,8 @@ with DAG(
         'retries': 1,
         'retry_delay': timedelta(minutes=1)
     },
-    catchup=False
+    catchup=False,
+    doc_md=__doc__
 ) as dag:
 
     opr_run_container = AzureContainerInstancesOperator(

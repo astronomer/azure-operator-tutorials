@@ -1,3 +1,9 @@
+"""
+Shows how to call AzureDataExplorer from Airflow.
+
+Assumes you have an ADX account already running.
+"""
+
 from airflow import DAG
 from airflow.providers.microsoft.azure.operators.adx import AzureDataExplorerQueryOperator
 from datetime import datetime, timedelta
@@ -17,7 +23,8 @@ with DAG(
         'retries': 1,
         'retry_delay': timedelta(minutes=1)
     },
-    catchup=False
+    catchup=False,
+    doc_md=__doc__
 ) as dag:
 
     opr_adx_query = AzureDataExplorerQueryOperator(
