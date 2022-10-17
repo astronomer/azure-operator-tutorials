@@ -1,0 +1,11 @@
+# These categories will be applied to all DAGs in the repo.
+categories:
+  - ETL/ELT
+  - Big Data and Analytics
+  - Compute
+# List of DAGs that should be published to the Astronomer Registry.
+dags:
+  - path: dags/azure-container-instance.py
+  - path: dags/azure-data-explorer.py
+  - path: dags/azure-data-factory-dag.py
+  - path: dags/covid_to_azure_blob.py
