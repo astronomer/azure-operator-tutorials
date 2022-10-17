@@ -1,3 +1,9 @@
+"""
+DAG that uploads data to Azure Blob Storage and sends an email when ran successfully.
+
+This DAG shows how to generate a task for every element in a list.
+"""
+
 from airflow import DAG
 from airflow.decorators import task
 from airflow.operators.dummy_operator import DummyOperator
@@ -17,6 +23,7 @@ email_to = ["example@example.com"]
 with DAG(
     "covid_data_to_azure_blob",
     start_date=datetime(2020, 12, 1),
+    doc_md=__doc__,
     max_active_runs=1,
     schedule_interval="@daily",
     default_args={

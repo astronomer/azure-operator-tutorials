@@ -1,3 +1,11 @@
+"""
+DAG that shows how to run an ADF pipeline from Airflow.
+
+This can be a helpful pattern to follow if you have users that feel more
+comfortable using ADF or if you have pre-existing pipelines already there.
+"""
+
+
 from airflow import DAG
 from airflow.decorators import task
 from datetime import datetime, timedelta
@@ -31,7 +39,8 @@ with DAG(
         'email_on_retry': False,
         'retries': 0,
     },
-    catchup=False
+    catchup=False,
+    doc_md=__doc__
 ) as dag:
 
     run_adf_pipeline(pipeline_name="pipeline1", date=yesterday_date)
