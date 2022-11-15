@@ -1,7 +1,9 @@
 """
+### Load Covid data to Azure Blob Storage
+
 DAG that uploads data to Azure Blob Storage and sends an email when ran successfully.
 
-This DAG shows how to generate a task for every element in a list.
+This DAG shows how to generate a task for every element in a list and uses the AzureBlobHook to perform the upload.
 """
 
 from airflow import DAG

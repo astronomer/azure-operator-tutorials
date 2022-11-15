@@ -1,7 +1,9 @@
 """
-Shows how to call AzureDataExplorer from Airflow.
+### Azure Data Explorer and Airflow
 
-Assumes you have an ADX account already running.
+Shows how to call AzureDataExplorer from Airflow using the AzureDataExplorer Operator.
+
+This example assumes you have an ADX account already running and runs a relatively simple query.
 """
 
 from airflow import DAG
